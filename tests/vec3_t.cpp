@@ -1,9 +1,5 @@
-//
-// Created by James Sherlock-Shaw on 05/11/2024.
-//
-
 #include <gtest/gtest.h>
-#include "maths/vec3.hpp"
+#include <vec3.hpp>
 
 void expect_vector(const vec3& vec, f32 x, f32 y, f32 z) {
     EXPECT_EQ(vec[0], x);

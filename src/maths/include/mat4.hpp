@@ -52,6 +52,8 @@ struct mat4
   void set_orthographic(const projection& projection);
   void set_frustum(const projection& projection);
   void setLookAt(const vec3& eye, const vec3& centre, const vec3& up);
+
+  void print() const;
 };
 
 vec4 operator*(mat4 lhs, const vec4& rhs);

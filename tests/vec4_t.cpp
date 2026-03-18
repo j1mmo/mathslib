@@ -1,8 +1,7 @@
 #include <gtest/gtest.h>
+#include <vec4.hpp>
+
 #include "helper.hpp"
-#include "maths/vec4.hpp"
-
-
 
 TEST(vector, initialisation) {
     vec4 v = vec4(1, 2, 3, 4);

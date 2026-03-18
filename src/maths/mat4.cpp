@@ -5,9 +5,10 @@
 #include <cassert>
 #include <cstring>
 #include <cmath>
+#include <cstdio>
 
 
-mat4::mat4() : data{1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0} {}
+mat4::mat4() : data{1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1} {}
 
 mat4::mat4(f32 value) : data{value} {}
 
@@ -274,4 +275,13 @@ inline void mat4::set_orthographic(const projection& projection)
          0,   m5,   0,  0,
          0,    0, m10,  0,
        m12, m13,  m14,  1};
+}
+
+void mat4::print() const
+{
+  printf("[ %f, %f, %f, %f\n%f, %f, %f, %f\n%f, %f, %f, %f\n%f, %f, %f, %f]\n",
+	data[0], data[1], data[2], data[3],
+	data[4], data[5], data[6], data[7],
+	data[8], data[9], data[10], data[11],
+	data[12], data[13], data[14], data[15]);
 }

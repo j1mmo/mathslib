@@ -8,6 +8,14 @@ void expect_vector(const vec4& vec, f32 x, f32 y, f32 z, f32 w) {
     EXPECT_EQ(vec[3], w);
 }
 
+void expect_vector(const vec4& vec1, const vec4& vec2)
+{
+  EXPECT_EQ(vec1[0], vec2[0]);
+  EXPECT_EQ(vec1[1], vec2[1]);
+  EXPECT_EQ(vec1[2], vec2[2]);
+  EXPECT_EQ(vec1[3], vec2[3]);
+}
+
 void expect_equal(const mat4& mat,
     f32 m00, f32 m01, f32 m02, f32 m03,
     f32 m10, f32 m11, f32 m12, f32 m13,

@@ -41,10 +41,11 @@ mat4 translate(const mat4& m, const vec3& v)
 {
   mat4 t{};
 
-  t(3, 0) = v[0];
-  t(3, 1) = v[1];
-  t(3, 2) = v[2];
+  t(0, 3) = v[0];
+  t(1, 3) = v[1];
+  t(2, 3) = v[2];
 
+  t.print();
   return m * t;
 }
 

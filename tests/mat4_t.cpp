@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include "helper.hpp"
-#include "maths/mat4.hpp"
+#include <mat4.hpp>
 
+#include "helper.hpp"
 
 const mat4 m =
     {1,2,3,4,

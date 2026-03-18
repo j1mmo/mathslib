@@ -11,7 +11,13 @@ FetchContent_MakeAvailable(googletest)
 add_library(GTest::GTest INTERFACE IMPORTED)
 target_link_libraries(GTest::GTest INTERFACE gtest_main)
 
-add_executable(maths_lib_tests main.cpp)
+add_executable(maths_lib_tests
+	main.cpp
+	helper.cpp
+	vec3_t.cpp
+	vec4_t.cpp
+	mat4_t.cpp
+	matrix_transformations_t.cpp)
 
 target_link_libraries(maths_lib_tests
 	PRIVATE GTest::GTest
