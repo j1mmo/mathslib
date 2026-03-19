@@ -195,9 +195,9 @@ mat4 rotate(mat4 matrix, f32 angle, vec3 axis)
 inline void mat4::rotateX(const float degrees)
 {
     const float
-        radians = m::degrees_to_radians(degrees),
-        cos_theta = cosf(radians),
-        sin_theta = sinf(radians);
+      radians = maths::radians(degrees),
+      cos_theta = cosf(radians),
+      sin_theta = sinf(radians);
     float original[8];
 
     for (size_t i = 0; i < 4; i++)
@@ -216,7 +216,7 @@ inline void mat4::rotateX(const float degrees)
 inline void mat4::rotateY(const float degs)
 {
     const float
-        radians = m::degrees_to_radians(degs),
+      radians = maths::radians(degs),
         cos_theta = cosf(radians),
         sin_theta = sinf(radians);
     float original[8];
@@ -236,7 +236,7 @@ inline void mat4::rotateY(const float degs)
 inline void mat4::rotateZ(const float degs)
 {
     const float
-        radians = m::degrees_to_radians(degs),
+      radians = maths::radians(degs),
         cos_theta = cosf(radians),
         sin_theta = sinf(radians);
     float original[8];
@@ -277,21 +277,23 @@ inline void mat4::set_orthographic(const projection& projection)
        m12, m13,  m14,  1};
 }
 
-mat4 mat4::setProjection(float fov, float near, float far)
+
+
+mat4 mat4::setPerspective(float fov, float aspectRatio, float near, float far)
 {
-  const float scale = 1 / tan(fov * 0.5 * M_PI / 180);
+  const float tanHalfFOV = tan((float) fov / (float)2.0f);
 
   mat4 m{};
-  m(0, 0) = scale;
-  m(1, 1) = scale;
-  m(2, 2) = -far / (far - near);
-  m(3, 2) = -far * near / (far - near);
-  m(2, 3) = -1;
-  m(3, 3) = 0;
-
-  return m;
+  const float m11 = 1.0f / (tanHalfFOV * aspectRatio);
+  const float m22 = 1.0f / tanHalfFOV;
+  const float m33 = -(far + near) / (far - near);
+  const float m34 = (2.0f * far * near) / (near-far);
+  return mat4{
+    m11 , 0.0f, 0.0f, 0.0f,
+    0.0f,  m22, 0.0f, 0.0f,
+    0.0f, 0.0f,  m33,  m34,
+    0.0f, 0.0f,-1.0f, 0.0f};
 }
-
 void mat4::print() const
 {
   printf("[ %f, %f, %f, %f\n%f, %f, %f, %f\n%f, %f, %f, %f\n%f, %f, %f, %f]\n",

@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include <mat4.hpp>
+#include <general.hpp>
 
 #include "helper.hpp"
 
@@ -210,4 +211,13 @@ TEST(mat4_t, matrix_addition_by_matrix) {
         10.0f, 12.0f, 14.0f, 16.0f,
         18.0f, 20.0f, 22.0f, 24.0f,
         26.0f, 28.0f, 30.0f, 32.0f);
+}
+
+TEST(mat4_t, matrix_perspective) {
+  mat4 perspective = mat4::setPerspective(maths::radians(45.0f), (float) 800/ (float) 600, 0.1f, 100.0f);
+  ASSERT_FLOAT_EQ(perspective[0], 1.810660);
+  ASSERT_FLOAT_EQ(perspective[5], 2.414213);
+  ASSERT_FLOAT_EQ(perspective[10], -1.002002);
+  ASSERT_NEAR(perspective[11], -0.2002, 1e-5f);
+  ASSERT_FLOAT_EQ(perspective[14], -1.0f);
 }

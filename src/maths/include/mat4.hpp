@@ -49,8 +49,8 @@ struct mat4
   void set_frustum(const projection& projection);
   void setLookAt(const vec3& eye, const vec3& centre, const vec3& up);
 
-  static mat4 setProjection(float fov, float near, float far);
-
+  static mat4 setPerspective(float fov, float aspectRatio, float near, float far);
+  
   void print() const;
 };
 
