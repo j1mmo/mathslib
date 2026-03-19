@@ -277,6 +277,21 @@ inline void mat4::set_orthographic(const projection& projection)
        m12, m13,  m14,  1};
 }
 
+mat4 mat4::setProjection(float fov, float near, float far)
+{
+  const float scale = 1 / tan(fov * 0.5 * M_PI / 180);
+
+  mat4 m{};
+  m(0, 0) = scale;
+  m(1, 1) = scale;
+  m(2, 2) = -far / (far - near);
+  m(3, 2) = -far * near / (far - near);
+  m(2, 3) = -1;
+  m(3, 3) = 0;
+
+  return m;
+}
+
 void mat4::print() const
 {
   printf("[ %f, %f, %f, %f\n%f, %f, %f, %f\n%f, %f, %f, %f\n%f, %f, %f, %f]\n",
