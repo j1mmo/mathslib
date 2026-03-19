@@ -45,7 +45,6 @@ mat4 translate(const mat4& m, const vec3& v)
   t(1, 3) = v[1];
   t(2, 3) = v[2];
 
-  t.print();
   return m * t;
 }
 
