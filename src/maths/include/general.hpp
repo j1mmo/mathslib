@@ -1,6 +1,8 @@
 #ifndef GENERAL_H
 #define GENERAL_H
+
 #include "preferences.hpp"
+#include "vec3.hpp"
 
 namespace maths
 {
@@ -8,6 +10,7 @@ namespace maths
 
   f32 radians(f32 degrees);
   f32 degrees(f32 radians);
+  vec3 normalise(const vec3& vec);
 }
 
 #endif //GENERAL_H
