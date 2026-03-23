@@ -35,5 +35,6 @@ vec3 operator-(vec3 lhs, const vec3& rhs);
 vec3 operator*(vec3 lhs, const vec3& rhs);
 vec3 operator/(vec3 lhs, const vec3& rhs);
 vec3 operator*(f32 lhs, const vec3& rhs);
+vec3 operator*(const vec3& rhs, f32 lhs);
 
 #endif //VEC3_H
