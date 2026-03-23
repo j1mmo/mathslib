@@ -11,6 +11,7 @@ namespace maths
   f32 radians(f32 degrees);
   f32 degrees(f32 radians);
   vec3 normalise(const vec3& vec);
+  vec3 cross(const vec3& a, const vec3& b);
 }
 
 #endif //GENERAL_H
