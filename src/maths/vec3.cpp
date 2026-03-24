@@ -6,7 +6,7 @@
 vec3::vec3(const float x, const float y, const float z)
     : data {x, y, z} {}
 
-f32 vec3::dot_product(const vec3& a, const vec3& b) {
+f32 vec3::dot(const vec3& a, const vec3& b) {
     return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
 }
 

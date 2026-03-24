@@ -221,3 +221,16 @@ TEST(mat4_t, matrix_perspective) {
   ASSERT_NEAR(perspective[11], -0.2002, 1e-5f);
   ASSERT_FLOAT_EQ(perspective[14], -1.0f);
 }
+
+TEST(mat4_t, matrix_lookAt) {
+  vec3 eye    = {0, 0, 3};
+  vec3 center = {0, 0, 0};
+  vec3 up     = {0, 1, 0};
+
+  mat4 view = mat4::lookAt(eye, center, up);
+  expect_equal(view,
+	       1.0f, 0.0f, 0.0f, 0.0f,
+	       0.0f, 1.0f, 0.0f, 0.0f,
+	       0.0f, 0.0f, 1.0f,-3.0f,
+	       0.0f, 0.0f, 0.0f, 1.0f);
+}

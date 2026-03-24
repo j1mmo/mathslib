@@ -18,6 +18,11 @@ vec3 maths::normalise(const vec3& vec)
     sqrtf(vec[0] * vec[0] +
 	  vec[1] * vec[1] +
 	  vec[2] * vec[2]);
+
+  if (length < 1e-8f) {
+      return vec3{0.0f, 0.0f, 0.0f};
+  }
+  
   return vec3{
     vec[0] / length,
     vec[1] / length,

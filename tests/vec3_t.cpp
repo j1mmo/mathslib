@@ -26,7 +26,7 @@ TEST(vec3_t, copy_operator) {
 TEST(vec3_t, dot_product) {
     vec3 v1 = vec3(1, 2, 3);
     vec3 v2 = vec3(1, 2, 3);
-    f32 dot_product = vec3::dot_product(v1, v2);
+    f32 dot_product = vec3::dot(v1, v2);
     EXPECT_EQ(dot_product, 14.0f);
 }
 

@@ -7,7 +7,6 @@
 #include <cmath>
 #include <cstdio>
 
-
 mat4::mat4() : data{1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1} {}
 
 mat4::mat4(f32 value) : data{value} {}
@@ -161,9 +160,9 @@ void mat4::setLookAt(const vec3& eye, const vec3& centre, const vec3& up)
     U[1] *= -1;
     U[2] *= -1;
 
-    data[12] = vec3::dot_product(S, eye);
-    data[13] = vec3::dot_product(U, eye);
-    data[14] = vec3::dot_product(F, eye);
+    data[12] = vec3::dot(S, eye);
+    data[13] = vec3::dot(U, eye);
+    data[14] = vec3::dot(F, eye);
 }
 
 inline void mat4::setIdentity()
@@ -277,7 +276,19 @@ inline void mat4::set_orthographic(const projection& projection)
        m12, m13,  m14,  1};
 }
 
+mat4 mat4::lookAt(const vec3& eye, const vec3& center, const vec3& up)
+{
+  const vec3 f = maths::normalise(center - eye);
+  const vec3 s = maths::normalise(maths::cross(f, up));
+  const vec3 u = maths::cross(s, f);
 
+  return mat4 {
+     s[0],  s[1],  s[2], -vec3::dot(s, eye),
+     u[0],  u[1],  u[2], -vec3::dot(u, eye),
+    -f[0], -f[1], -f[2],  vec3::dot(f, eye),
+     0.0f,  0.0f,  0.0f,               1.0f
+  };
+}
 
 mat4 mat4::setPerspective(float fov, float aspectRatio, float near, float far)
 {
@@ -294,6 +305,7 @@ mat4 mat4::setPerspective(float fov, float aspectRatio, float near, float far)
     0.0f, 0.0f,  m33,  m34,
     0.0f, 0.0f,-1.0f, 0.0f};
 }
+
 void mat4::print() const
 {
   printf("[ %f, %f, %f, %f\n%f, %f, %f, %f\n%f, %f, %f, %f\n%f, %f, %f, %f]\n",

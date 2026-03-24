@@ -50,9 +50,11 @@ struct mat4
   void setLookAt(const vec3& eye, const vec3& centre, const vec3& up);
 
   static mat4 setPerspective(float fov, float aspectRatio, float near, float far);
+  static mat4 lookAt(const vec3& eye, const vec3& center, const vec3& up);
   
   void print() const;
 };
+
 
 vec4 operator*(mat4 lhs, const vec4& rhs);
 mat4 operator*(mat4 lhs, const mat4& rhs);

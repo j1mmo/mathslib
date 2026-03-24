@@ -11,7 +11,7 @@ struct vec3 {
     vec3() = default;
     vec3(float x, float y, float z);
 
-    static f32 dot_product(const vec3& a, const vec3& b);
+    static f32 dot(const vec3& a, const vec3& b);
     static vec3 cross_product(const vec3& a, const vec3& b);
     f32 magnitude() const;
     void normalise();
