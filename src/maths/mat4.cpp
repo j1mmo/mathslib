@@ -94,7 +94,7 @@ mat4& mat4::operator-=(const mat4& other) {
 }
 
 mat4 operator-(mat4 lhs, const mat4& rhs) {
-    lhs += rhs;
+    lhs -= rhs;
     return lhs;
 }
 
