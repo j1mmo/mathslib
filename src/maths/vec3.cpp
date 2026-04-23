@@ -18,7 +18,13 @@ vec3 vec3::cross_product(const vec3& a, const vec3& b) {
 }
 
 void vec3::normalise() {
-    (*this) /= magnitude();
+  float mag = magnitude();
+
+  if (0.0f == mag) {
+      (*this) = {0.0f, 0.0f, 0.0f};
+  } else {
+      (*this) /= magnitude();
+  }
 }
 
 f32 vec3::magnitude() const {
@@ -115,6 +121,6 @@ vec3 operator*(f32 lhs, const vec3& rhs) {
   return vec3 {lhs * rhs[0], lhs * rhs[1], lhs * rhs[2]};
 }
 
-vec3 operator*( const vec3& rhs, f32 lhs) {
+vec3 operator*(const vec3& rhs, f32 lhs) {
   return lhs * rhs;
 }

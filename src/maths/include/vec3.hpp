@@ -1,8 +1,6 @@
 #ifndef VEC3_H
 #define VEC3_H
-
 #include "preferences.hpp"
-
 #include <cstdint>
 
 struct vec3 {
