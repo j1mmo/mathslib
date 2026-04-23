@@ -30,6 +30,8 @@ struct mat4
 
   float& operator[](uint32_t index);
   float  operator[](uint32_t index) const;
+  float& operator[](uint32_t row, uint32_t col);
+  float  operator[](uint32_t row, uint32_t col) const;
 
   float& operator()(size_t row, size_t col);
   float  operator()(uint32_t row, uint32_t col) const;

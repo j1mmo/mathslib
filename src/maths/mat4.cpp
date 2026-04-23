@@ -30,6 +30,18 @@ float mat4::operator[](const uint32_t index) const {
     return data[index];
 }
 
+float& mat4::operator[](const uint32_t row, const uint32_t col) {
+    assert(row < 4);
+    assert(col < 4);
+    return data[row * 4 + col];
+}
+
+float mat4::operator[](uint32_t row, uint32_t col) const {
+     assert(row < 4);
+     assert(col < 4);
+     return data[row * 4 + col];
+}
+
 float& mat4::operator()(const size_t row, const size_t col) {
     assert(row < 4 && col < 4);
     return data[col + row * 4];
