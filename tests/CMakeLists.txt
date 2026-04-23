@@ -23,4 +23,6 @@ target_link_libraries(maths_lib_tests
 	PRIVATE GTest::GTest
 	maths)
 
+target_compile_options(maths PRIVATE -Wno-comma-subscript)
+
 add_test(maths_lib_gtests maths_lib_tests)
