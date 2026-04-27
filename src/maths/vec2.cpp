@@ -24,6 +24,11 @@ f32& vec2::operator[](const u32 index) {
     return data[index];
 }
 
+vec2 vec2::operator-() const {
+  vec2 v{-data[0], -data[1]};
+  return v;
+}
+
 vec2 vec2::operator+=(const vec2& rhs) {
     data[0] += rhs.data[0];
     data[1] += rhs.data[1];

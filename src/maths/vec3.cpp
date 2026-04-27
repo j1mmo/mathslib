@@ -41,6 +41,10 @@ f32& vec3::operator[](const uint32_t index) {
     return data[index];
 }
 
+vec3 vec3::operator-() const {
+  return vec3{-data[0], -data[1], -data[2]};
+}
+
 vec3 vec3::operator+=(const vec3& rhs) {
     data[0] += rhs.data[0];
     data[1] += rhs.data[1];

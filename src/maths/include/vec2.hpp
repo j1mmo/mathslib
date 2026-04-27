@@ -4,26 +4,28 @@
 #include "preferences.hpp"
 
 struct vec2 {
-    f32 data[2] {0.0f,0.0f};
+  f32 data[2] {0.0f,0.0f};
 
-    vec2() = default;
-    vec2(float x, float y);
+  vec2() = default;
+  vec2(float x, float y);
 
-    f32 magnitude() const;
-    void normalise();
+  f32 magnitude() const;
+  void normalise();
 
-    f32  operator[](u32 index) const;
-    f32& operator[](u32 index);
+  f32  operator[](u32 index) const;
+  f32& operator[](u32 index);
+  
+  vec2 operator-() const;
+  
+  vec2 operator+=(const vec2& rhs);
+  vec2 operator-=(const vec2& rhs);
+  vec2 operator/=(const vec2& rhs);
+  vec2 operator*=(const vec2& rhs);
 
-    vec2 operator+=(const vec2& rhs);
-    vec2 operator-=(const vec2& rhs);
-    vec2 operator/=(const vec2& rhs);
-    vec2 operator*=(const vec2& rhs);
-
-    vec2 operator+=(f32 rhs);
-    vec2 operator-=(f32 rhs);
-    vec2 operator/=(f32 rhs);
-    vec2 operator*=(f32 rhs);
+  vec2 operator+=(f32 rhs);
+  vec2 operator-=(f32 rhs);
+  vec2 operator/=(f32 rhs);
+  vec2 operator*=(f32 rhs);
 };
 
 vec2 operator+(vec2 lhs, const vec2& rhs);
