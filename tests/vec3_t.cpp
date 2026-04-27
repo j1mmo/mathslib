@@ -80,7 +80,7 @@ TEST(vec3_t, add_operator) {
     expect_vector(v2, 2.0f, 4.0f, 6.0f);
 }
 
-TEST(vec3_t, minus_oeprator) {
+TEST(vec3_t, minus_operator) {
     vec3 v1 = vec3(1, 2, 3);
     vec3 v2 = v1 - vec3(1, 2, 3);
     expect_vector(v2, 0.0f, 0.0f, 0.0f);
