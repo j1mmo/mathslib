@@ -17,6 +17,7 @@ add_executable(maths_lib_tests
 	vec3_t.cpp
 	vec4_t.cpp
 	mat4_t.cpp
+	catmullrom_t.cpp
 	matrix_transformations_t.cpp)
 
 target_link_libraries(maths_lib_tests

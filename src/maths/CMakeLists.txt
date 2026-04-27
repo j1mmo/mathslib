@@ -7,6 +7,7 @@ add_library(maths STATIC
 	vec4.cpp
 	mat4.cpp
 	matrix_transformations.cpp
+	catmullrom.cpp
 	general.cpp)
 
 target_include_directories(maths PUBLIC
