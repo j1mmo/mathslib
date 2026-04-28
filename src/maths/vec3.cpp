@@ -17,6 +17,19 @@ vec3 vec3::cross_product(const vec3& a, const vec3& b) {
         (a[0] * b[1] - a[1] * b[0])};
 }
 
+vec3 vec3::normalise(const vec3& v) {
+  float mag = v.magnitude();
+  vec3 return_vector;
+  if (0.0f == mag) {
+      return_vector = {0.0f, 0.0f, 0.0f};
+  } else {
+      return_vector[0] /= mag;
+      return_vector[1] /= mag;
+      return_vector[2] /= mag;
+  }
+  return return_vector;
+}
+
 void vec3::normalise() {
   float mag = magnitude();
 

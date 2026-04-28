@@ -8,6 +8,7 @@ add_library(maths STATIC
 	mat4.cpp
 	matrix_transformations.cpp
 	catmullrom.cpp
+	frenet_serret.cpp
 	general.cpp)
 
 target_include_directories(maths PUBLIC
