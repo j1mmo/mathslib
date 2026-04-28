@@ -134,6 +134,14 @@ vec3 vec3::operator*=(const f32 rhs) {
     return *this;
 }
 
+vec3 operator+(f32 lhs, const vec3& rhs) {
+  return vec3 {lhs + rhs[0], lhs + rhs[1], lhs + rhs[2]};
+}
+
+vec3 operator+(const vec3& lhs, f32 rhs) {
+  return lhs * rhs;
+}
+
 vec3 operator*(f32 lhs, const vec3& rhs) {
   return vec3 {lhs * rhs[0], lhs * rhs[1], lhs * rhs[2]};
 }
