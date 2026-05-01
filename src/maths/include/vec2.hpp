@@ -10,6 +10,7 @@ struct vec2 {
   vec2(float x, float y);
 
   f32 magnitude() const;
+  void Absolute();
   void normalise();
 
   f32  operator[](u32 index) const;

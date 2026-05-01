@@ -10,6 +10,13 @@ void vec2::normalise() {
     (*this) /= magnitude();
 }
 
+void vec2::Absolute() {
+  f32 x = data[0];
+  f32 y = data[1];
+  data[0] = abs(x);
+  data[1] = abs(y);
+}
+
 f32 vec2::magnitude() const {
     return sqrtf(data[0] * data[0] + data[1] * data[1]);
 }

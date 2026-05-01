@@ -14,6 +14,7 @@ target_link_libraries(GTest::GTest INTERFACE gtest_main)
 add_executable(maths_lib_tests
 	main.cpp
 	helper.cpp
+	vec2_t.cpp
 	vec3_t.cpp
 	vec4_t.cpp
 	mat4_t.cpp
