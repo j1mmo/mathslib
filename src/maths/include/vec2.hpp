@@ -10,7 +10,7 @@ struct vec2 {
   vec2(float x, float y);
 
   static f32 cross_product(const vec2& lhs, const vec2& rhs);
-  static f32 dot_product(const vec& lhs, const vec& rhs);
+  static f32 dot_product(const vec2& lhs, const vec2& rhs);
   f32 magnitude() const;
   void Absolute();
   void normalise();
