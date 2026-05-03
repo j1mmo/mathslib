@@ -10,6 +10,9 @@ f32 vec2::cross_product(const vec2& lhs, const vec2& rhs) {
   return lhs[0] * rhs[1] - rhs[0] * lhs[1];
 }
 
+f32 vec2::dot_product(const vec& lhs, const vec& rhs) {
+  return lhs[0] * lhs[1] + rhs[0] * rhs[1];
+}
 void vec2::normalise() {
     (*this) /= magnitude();
 }
